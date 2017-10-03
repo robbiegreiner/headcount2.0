@@ -16,10 +16,24 @@ export default class DistrictRepository {
   findByName(location = undefined) {
     if(location){
       const dataKeys = Object.keys(this.data);
-      let found = dataKeys.find( item => {
-        return item.toUpperCase() === location.toUpperCase();
+      let found = dataKeys.find( key => {
+        return key.toUpperCase() === location.toUpperCase();
       })
       return this.data[found];
     }
+  }
+
+  findAllMatches(locationString) {
+    const keys = Object.keys(this.data);
+    let fullData = keys.map( key => this.data[key]);
+
+
+    if(locationString){
+      return fullData.filter(dataPiece => {
+        return dataPiece.location.includes(locationString.toUpperCase());
+      })
+    }
+
+    return fullData;
   }
 }
