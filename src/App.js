@@ -18,17 +18,13 @@ class App extends Component {
     this.data = bigData.data;
     this.updateView = this.updateView.bind(this)
     this.locationSearch = this.locationSearch.bind(this)
+    this.comparisonMaker = this.comparisonMaker.bind(this)
   }
 
   updateView(buttonValue) {
-    // const bigData = new DistrictRepository(kindergarten);
     this.setState({ view: buttonValue,
                     bigData: bigData.data })
   }
-
-  // componentDidMount() {
-  //   this.setState({ cardsArray: bigData.findAllMatches() })
-  // }
 
   locationSearch(string) {
     const newArray = bigData.findAllMatches(string);
@@ -44,6 +40,20 @@ class App extends Component {
 
   }
 
+  comparisonMaker(event) {
+    event.currentTarget.style.border = '2px solid blue'
+    //onclick of a card display top left
+    //click second card display top right
+    //copy this.state.bigData and add left and right cards
+    //give each card a unique ID (date.now())
+    let swinkObj = Object.assign({Card1: this.state.bigData['SWINK 33']},
+                                 {Card3: this.state.bigData['Colorado']},
+                                 this.state.bigData)
+    this.setState({
+      bigData: swinkObj
+    })
+  }
+
   render() {
     return (
       <div className="app">
@@ -51,7 +61,8 @@ class App extends Component {
         <Controls updateView={ this.updateView } />
         <CardContainer view={ this.state.view }
                        cardsArray = { this.state.cardsArray }
-                       bigData={ this.state.bigData } />
+                       bigData={ this.state.bigData }
+                       comparisonMaker={ this.comparisonMaker } />
       </div>
 
     );
