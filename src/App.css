@@ -1,1 +1,29 @@
 /*APP COMPONENT RELATED CSS GOES HERE*/
+
+.app {
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  font-size: 20px;
+  width: 300px;
+  border: 2px solid green;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+h5{
+  margin: 0px;
+}

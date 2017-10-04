@@ -10,20 +10,21 @@ class App extends Component {
     super()
     this.state = {
       bigData: {},
-      cards: [],
+      cardsArray: [],
       view: 'initial'
     }
     this.updateView = this.updateView.bind(this)
   }
 
   updateView(buttonValue) {
-    this.setState({ view: buttonValue})
-    this.setState({ bigData: new DistrictRepository(kindergarten) })
+    const bigData = new DistrictRepository(kindergarten);
+    this.setState({ view: buttonValue,
+                    bigData: bigData.data })
   }
 
   render() {
     return (
-      <div>
+      <div className="app">
         <Controls updateView={ this.updateView } />
         <CardContainer view={ this.state.view } bigData={ this.state.bigData } />
       </div>

@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
+import Card from './Card.js'
 
-class CardContainer extends Component {
-  constructor(){
-    super();
-  }
+const CardContainer = ({ view, bigData }) => {
 
-  formatData() {
-    const keys = Object.keys(this.state.bigData.data);
-    console.log(keys);
-  }
+  const keys = Object.keys(bigData);
+  const cards = keys.map( key => {
+    console.log(bigData[key]);
+    return <Card object={bigData[key]} key={key} />;
+  })
 
-  render() {
-    console.log(this.props.bigData);
-    return (
-      <div>
-        Card Container
-      </div>
-    );
-  }
+  return(
+    <div className="card-container">
+      { cards }
+    </div>
+  )
+
+
 }
 
 
