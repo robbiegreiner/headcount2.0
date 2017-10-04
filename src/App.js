@@ -15,7 +15,7 @@ class App extends Component {
       cardsArray: [],
       view: 'initial'
     }
-    this.data = bigData;
+    this.data = bigData.data;
     this.updateView = this.updateView.bind(this)
     this.locationSearch = this.locationSearch.bind(this)
   }
@@ -32,9 +32,16 @@ class App extends Component {
 
   locationSearch(string) {
     const newArray = bigData.findAllMatches(string);
+    const newDataObject = newArray.reduce( (accu, schoolObject) => {
+      accu[schoolObject.location] = schoolObject;
+      return accu;
+    },{})
+
     this.setState({
-      cardsArray: newArray
+      cardsArray: newArray,
+      bigData: newDataObject,
     })
+
   }
 
   render() {
