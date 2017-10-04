@@ -5,7 +5,6 @@ const CardContainer = ({ view, bigData, cardsArray }) => {
 
   const keys = Object.keys(bigData);
   const cards = keys.map( key => {
-    // console.log(bigData[key]);
     return <Card object={bigData[key]} key={key} cardsArray={cardsArray}/>;
   })
 
