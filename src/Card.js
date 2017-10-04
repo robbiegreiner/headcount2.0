@@ -10,8 +10,6 @@ const Card = ({ object, key }) => {
     <div className="card">
       <h5>{object.location}</h5>
       <p>{yearData}</p>
-      <h5></h5>
-
     </div>
 )}
 

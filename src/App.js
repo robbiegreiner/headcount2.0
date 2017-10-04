@@ -3,7 +3,9 @@ import Controls from './Controls';
 import CardContainer from './CardContainer';
 import kindergarten from '../data/kindergartners_in_full_day_program.js';
 import DistrictRepository from './helper.js';
+import Search from './Search';
 import './App.css';
+const bigData = new DistrictRepository(kindergarten);
 
 class App extends Component {
   constructor() {
@@ -14,19 +16,33 @@ class App extends Component {
       view: 'initial'
     }
     this.updateView = this.updateView.bind(this)
+    this.locationSearch = this.locationSearch.bind(this)
   }
 
   updateView(buttonValue) {
-    const bigData = new DistrictRepository(kindergarten);
+    // const bigData = new DistrictRepository(kindergarten);
     this.setState({ view: buttonValue,
                     bigData: bigData.data })
+  }
+
+  componentDidMount() {
+    this.setState({ cardsArray: bigData.findAllMatches() })
+  }
+
+  locationSearch(string) {
+    this.setState({
+      cardsArray: bigData.findAllMatches(string)
+    })
   }
 
   render() {
     return (
       <div className="app">
+        <Search changeStateEvent={this.changeStateEvent}
+                search={this.locationSearch}/>
         <Controls updateView={ this.updateView } />
-        <CardContainer view={ this.state.view } bigData={ this.state.bigData } />
+        <CardContainer view={ this.state.view }
+                       bigData={ this.state.bigData } />
       </div>
 
     );
