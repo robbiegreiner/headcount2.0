@@ -33,7 +33,6 @@ export default class DistrictRepository {
         return dataPiece.location.includes(locationString.toUpperCase());
       })
     }
-
     return fullData;
   }
 }

@@ -10,18 +10,15 @@ class Search extends Component {
   }
 
   changeStateEvent(event) {
-    this.setState({
-      inputValue: event.target.value
-    }, () => {
-      this.props.search(this.state.inputValue)
-    })
-  }
+      this.props.locationSearch(event.target.value)
+    }
+
 
   render() {
     return(
       <div>
         <input placeholder='Search School Districts'
-               onChange={this.changeStateEvent} />
+               onChange={(event) =>this.changeStateEvent(event)} />
       </div>
     )
   }

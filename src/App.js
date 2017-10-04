@@ -15,6 +15,7 @@ class App extends Component {
       cardsArray: [],
       view: 'initial'
     }
+    this.data = bigData;
     this.updateView = this.updateView.bind(this)
     this.locationSearch = this.locationSearch.bind(this)
   }
@@ -25,23 +26,24 @@ class App extends Component {
                     bigData: bigData.data })
   }
 
-  componentDidMount() {
-    this.setState({ cardsArray: bigData.findAllMatches() })
-  }
+  // componentDidMount() {
+  //   this.setState({ cardsArray: bigData.findAllMatches() })
+  // }
 
   locationSearch(string) {
+    const newArray = bigData.findAllMatches(string);
     this.setState({
-      cardsArray: bigData.findAllMatches(string)
+      cardsArray: newArray
     })
   }
 
   render() {
     return (
       <div className="app">
-        <Search changeStateEvent={this.changeStateEvent}
-                search={this.locationSearch}/>
+        <Search locationSearch={this.locationSearch}/>
         <Controls updateView={ this.updateView } />
         <CardContainer view={ this.state.view }
+                       cardsArray = { this.state.cardsArray }
                        bigData={ this.state.bigData } />
       </div>
 
