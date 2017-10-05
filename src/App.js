@@ -13,7 +13,8 @@ class App extends Component {
     this.state = {
       bigData: {},
       cardsArray: [],
-      view: 'initial'
+      view: 'initial',
+      comparedData: {}
     };
     this.theData = bigData.theData;
     this.updateView = this.updateView.bind(this);
@@ -36,18 +37,18 @@ class App extends Component {
 
   }
 
-  comparisonMaker(event) {
+  comparisonMaker(id, event) {
     event.currentTarget.style.border = '2px solid blue';
     //onclick of a card display top left
     //click second card display top right
     //copy this.state.bigData and add left and right cards
     //give each card a unique ID (date.now())
-    let swinkObj = Object.assign({
-      Card1: this.state.bigData['SWINK 33']
-    }, {
-      Card3: this.state.bigData['Colorado']
-    }, this.state.bigData);
-    this.setState({bigData: swinkObj});
+    const swinkObj = Object.assign({
+      [id]: this.state.bigData[id]
+    }, this.state.comparedData);
+    this.setState({ comparedData: swinkObj });
+    console.log(Object.keys(this.state.comparedData).length + 1);
+
   }
 
   render() {
@@ -57,7 +58,8 @@ class App extends Component {
         <Controls updateView={this.updateView}/>
         <CardContainer cardsArray={this.state.cardsArray}
                        bigData={this.state.bigData}
-                       comparisonMaker={this.comparisonMaker}/>
+                       comparisonMaker={this.comparisonMaker}
+                       comparedCards={this.comparedData}/>
       </div>
 
     );
