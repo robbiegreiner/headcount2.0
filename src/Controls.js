@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Controls extends Component {
   constructor(){
@@ -6,7 +7,7 @@ class Controls extends Component {
   }
 
   updateAppView(event) {
-    this.props.updateView(event.target.id)
+    this.props.updateView(event.target.id);
   }
 
   render() {
@@ -26,5 +27,9 @@ class Controls extends Component {
     );
   }
 }
+
+Controls.propTypes = {
+  updateView: PropTypes.func
+};
 
 export default Controls;

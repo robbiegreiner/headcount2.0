@@ -5,20 +5,22 @@ const Card = ({ object, key, poop, comparisonMaker }) => {
   const keys = Object.keys(object.data);
   const yearData = keys.map( key => {
     return <li key={key}>{key + ": " + object.data[key]}</li>;
-  })
+  });
 
-    return(
+  return (
     <div className="card"
           onClick={(event) => comparisonMaker(event)}>
       <h5>{object.location}</h5>
       <p>{yearData}</p>
     </div>
-  )
-}
+  );
+};
 
 Card.propTypes = {
   object: PropTypes.object,
-  id: PropTypes.string,
+  key: PropTypes.string,
+  poop: PropTypes.string,
+  comparisonMaker: PropTypes.func
 };
 
 export default Card;

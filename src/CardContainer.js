@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card.js'
 import PropTypes from 'prop-types';
 
-const CardContainer = ({ view, bigData, comparisonMaker}) => {
+const CardContainer = ({ bigData, comparisonMaker}) => {
 
   const keys = Object.keys(bigData);
   const cards = keys.map( key => {
@@ -10,18 +10,18 @@ const CardContainer = ({ view, bigData, comparisonMaker}) => {
                   key={key}
                   poop={Date.now()}
                   comparisonMaker={comparisonMaker} />;
-  })
+  });
 
-  return(
+  return (
     <div className="card-container">
       { cards }
     </div>
-  )
-}
+  );
+};
 
 CardContainer.propTypes = {
-  view: PropTypes.string,
-  bigData: PropTypes.object,
+  comparisonMaker: PropTypes.func,
+  bigData: PropTypes.object
 };
 
 
