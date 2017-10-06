@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import Controls from './Controls';
 import CardContainer from './CardContainer';
-import kindergarten from '../data/kindergartners_in_full_day_program.js';
 import DistrictRepository from './helper.js';
 import Search from './Search';
 import './App.css';
+import kindergarten from '../data/kindergartners_in_full_day_program.js';
 const bigData = new DistrictRepository(kindergarten);
 
 class App extends Component {
@@ -33,7 +33,8 @@ class App extends Component {
     this.setState({ averageCard: averageCard });
   }
 
-  updateView(buttonValue) {
+  updateView(buttonValue, dataChoice) {
+    bigData = new DistrictRepository(dataChoice)
     this.setState({view: buttonValue, bigData: bigData.data});
   }
 
