@@ -12,16 +12,19 @@ class Controls extends Component {
 
   render() {
     return (
-      <div>
+      <div className="controls">
         <button id='kindergarten'
                 onClick={(event) => this.updateAppView(event)} >
-          Kindergarten
+          Kindergartners In Full Day Program
         </button>
         <button>
-          Second
+          High School Graduation Rates
         </button>
         <button>
-          Third
+          School Aged Children In Poverty
+        </button>
+        <button>
+          Remediation In Higher Education
         </button>
       </div>
     );

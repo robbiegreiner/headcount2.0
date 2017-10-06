@@ -17,7 +17,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div className="search">
         <input placeholder='Search School Districts'
                onChange={(event) =>this.changeStateEvent(event)} />
       </div>
