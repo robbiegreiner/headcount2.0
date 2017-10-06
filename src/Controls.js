@@ -13,7 +13,7 @@ class Controls extends Component {
   render() {
     return (
       <div className="controls">
-        <button id='kindergarten'
+        <button className='buttonClick' id='kindergarten'
                 onClick={(event) => this.updateAppView(event)} >
           Kindergartners In Full Day Program
         </button>

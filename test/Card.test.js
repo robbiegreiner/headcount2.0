@@ -27,6 +27,4 @@ describe('Card', () => {
     expect(wrapper.find('li').length).toEqual(1);
   });
 
-
-
 });
