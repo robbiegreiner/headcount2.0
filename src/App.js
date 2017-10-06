@@ -61,9 +61,9 @@ class App extends Component {
         </div>
         <CardContainer cardsArray={this.state.cardsArray}
                        bigData={this.state.bigData}
-                       comparisonMaker={this.comparisonMaker}
-                       comparedCards={this.comparedData}/>
+                       comparisonMaker={this.comparisonMaker}/>
       </div>
+      //  comparedCards={this.comparedData}/>
 
     );
   }
