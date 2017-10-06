@@ -14,12 +14,23 @@ class App extends Component {
       bigData: {},
       cardsArray: [],
       view: 'initial',
-      comparedData: {}
+      comparedData: {},
+      averageCard: {}
     };
     this.theData = bigData.theData;
     this.updateView = this.updateView.bind(this);
     this.locationSearch = this.locationSearch.bind(this);
     this.comparisonMaker = this.comparisonMaker.bind(this);
+    this.resetComparedState = this.resetComparedState.bind(this);
+    this.setAverageState = this.setAverageState.bind(this);
+  }
+
+  resetComparedState() {
+    this.setState({comparedData: {}});
+  }
+
+  setAverageState(averageCard) {
+    this.setState({ averageCard: averageCard });
   }
 
   updateView(buttonValue) {
@@ -39,16 +50,10 @@ class App extends Component {
 
   comparisonMaker(id, event) {
     event.currentTarget.style.border = '2px solid blue';
-    //onclick of a card display top left
-    //click second card display top right
-    //copy this.state.bigData and add left and right cards
-    //give each card a unique ID (date.now())
     const swinkObj = Object.assign({
       [id]: this.state.bigData[id]
     }, this.state.comparedData);
     this.setState({ comparedData: swinkObj });
-    console.log(Object.keys(this.state.comparedData).length + 1);
-
   }
 
   render() {
@@ -59,10 +64,14 @@ class App extends Component {
           <Controls updateView={this.updateView}/>
           <Search locationSearch={this.locationSearch}/>
         </div>
-        <CardContainer cardsArray={this.state.cardsArray}
+          <CardContainer cardsArray={this.state.cardsArray}
                        bigData={this.state.bigData}
                        comparisonMaker={this.comparisonMaker}
-                       comparedCards={this.comparedData}/>
+                       comparedData={this.state.comparedData}
+                       resetComparedState={this.resetComparedState}
+                       averageCard={this.state.averageCard}
+                       helper={bigData}
+                       setAverageState={this.setAverageState}/>
       </div>
 
     );
