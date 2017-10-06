@@ -11,7 +11,6 @@ describe('Controls', () => {
 
   beforeEach( () => {
     wrapper = shallow(<App />);
-    console.log(wrapper.debug());
   });
 
   it('renders without crashing', () => {
@@ -19,6 +18,6 @@ describe('Controls', () => {
     // ReactDOM.render(<App />, div);
   });
 
-  
+
 
 });

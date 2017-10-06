@@ -14,6 +14,7 @@ describe('Card container', () => {
                        cardsArray={[]}
                        bigData={{}}
                        comparedCards={[]}
+                       comparedData={[]}
                        />);
   });
 
@@ -22,8 +23,7 @@ describe('Card container', () => {
   });
 
   it('should have three div classNames', () => {
-    expect(wrapper.find('.card-container').length).toEqual(1);
-    expect(wrapper.find('.card-container-compared').length).toEqual(1);
+    expect(wrapper.find('.compared-card-container').length).toEqual(1);
     expect(wrapper.find('.card-container-selected').length).toEqual(1);
   });
 
@@ -37,9 +37,16 @@ describe('Card container', () => {
                                      location: 'Town'},
                               key3: {data: {},
                                      location: 'Holy'}}}
-                            />);
+                            comparedData={{
+                              key1: {data: {},
+                                     location: 'Colorado'},
+                              key2: {data: {},
+                                     location: 'Town'},
+                              key3: {data: {},
+                                     location: 'Holy'}}}
+                              />);
 
-    expect(wrapper2.find('Card').length).toEqual(3);
+    expect(wrapper2.find('Card').length).toEqual(6);
   });
 
 });
