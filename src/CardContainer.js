@@ -35,11 +35,11 @@ const CardContainer = ({ bigData, comparisonMaker, comparedData}) => {
   // }
 
   return (
-    <div>
-      <div className="compared-card-container">
+    <div className='card-container'>
+      <div className="card-container-compared">
         <CardComparison comparedData={comparedData} />
       </div>
-      <div className="card-container">
+      <div className="card-container-selected">
         { cards }
       </div>
     </div>

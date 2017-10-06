@@ -58,9 +58,9 @@ class App extends Component {
         <Controls updateView={this.updateView}/>
         <CardContainer cardsArray={this.state.cardsArray}
                        bigData={this.state.bigData}
-                       comparisonMaker={this.comparisonMaker}
-                       comparedCards={this.comparedData}/>
+                       comparisonMaker={this.comparisonMaker}/>
       </div>
+      //  comparedCards={this.comparedData}/>
 
     );
   }
