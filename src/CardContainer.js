@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 import Card from './Card.js'
 import PropTypes from 'prop-types';
 
-// change this to stateful Component
-// this.state.comparisonCards = {};
-// click on card 1.. create a new object for card 1 and set state
-// click on card 2.. create a new new object and set state to this.state.comaprisonCards
-// componentShouldUpdate() once this.state.comparisoncards.length === 2
-// Compare the two the cards, get the averages that we need..
-// create the third card... make an object
-// do an newObject = object.assign(card1, card3, card 2)
-// setState(comparisonCards = newObject)
-
 const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedState, averageCard, helper, setAverageState}) => {
 
   const keys = Object.keys(bigData);
@@ -31,23 +21,26 @@ const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedSt
                   resetComparedState={resetComparedState}/>;
   });
 
-  // create average card and set to state.. maybe just do it myself and not run
-  // it thru function
+  let newAverageCard = {};
   const cardQty = (Object.keys(comparedData).length);
   console.log(cardQty);
+  //Getting hung up at this point
   if (cardQty === 2) {
     const keys = Object.keys(comparedData);
     console.log(keys);
-    const averageCard = helper.compareDistrictAverages(comparedData[keys[0]], comparedData[keys[1]]);
-    // setAverageState(averageCard);
+  // // JUST PASS IN THE LOCATION STRING!!! comparedData[keys[0].location]
+    newAverageCard = helper.compareDistrictAverages(keys[0],keys[1]);
   }
+  console.log(newAverageCard);
 
 
   return (
     <div>
       <div className="compared-card-container">
         { comparedCards }
-
+        <div className="card">
+          {/* Pass in newAverageCard? */}
+        </div>
       </div>
       <div className="card-container">
         { cards }
