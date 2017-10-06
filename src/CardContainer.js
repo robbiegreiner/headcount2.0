@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Card from './Card.js'
-import CardComparison from './CardComparison';
 import PropTypes from 'prop-types';
 
 // change this to stateful Component
@@ -13,7 +12,7 @@ import PropTypes from 'prop-types';
 // do an newObject = object.assign(card1, card3, card 2)
 // setState(comparisonCards = newObject)
 
-const CardContainer = ({ bigData, comparisonMaker, comparedData}) => {
+const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedState, averageCard, helper, setAverageState}) => {
 
   const keys = Object.keys(bigData);
   const cards = keys.map( key => {
@@ -23,21 +22,32 @@ const CardContainer = ({ bigData, comparisonMaker, comparedData}) => {
                   comparisonMaker={comparisonMaker} />;
   });
 
-  // if(comparedData){
-  //   const keys2 = Object.keys(comparedData);
-  //   console.log(keys2);
-  //   const comparedCards = keys2.map( key => {
-  //     return <Card object={comparedData[key]}
-  //                   key={key}
-  //                   id={key}
-  //                   comparisonMaker={comparisonMaker} />;
-  //   });
-  // }
+  const keys2 = Object.keys(comparedData);
+  const comparedCards = keys2.map( key => {
+    return <Card object={comparedData[key]}
+                  key={key}
+                  id={key}
+                  comparisonMaker={comparisonMaker}
+                  resetComparedState={resetComparedState}/>;
+  });
+
+  // create average card and set to state.. maybe just do it myself and not run
+  // it thru function
+  const cardQty = (Object.keys(comparedData).length);
+  console.log(cardQty);
+  if (cardQty === 2) {
+    const keys = Object.keys(comparedData);
+    console.log(keys);
+    const averageCard = helper.compareDistrictAverages(comparedData[keys[0]], comparedData[keys[1]]);
+    // setAverageState(averageCard);
+  }
+
 
   return (
-    <div className='card-container'>
-      <div className="card-container-compared">
-        <CardComparison comparedData={comparedData} />
+    <div>
+      <div className="compared-card-container">
+        { comparedCards }
+
       </div>
       <div className="card-container-selected">
         { cards }
@@ -49,7 +59,10 @@ const CardContainer = ({ bigData, comparisonMaker, comparedData}) => {
 CardContainer.propTypes = {
   comparisonMaker: PropTypes.func,
   bigData: PropTypes.object,
-  comparedData: PropTypes.object
+  comparedData: PropTypes.object,
+  resetComparedState: PropTypes.func,
+  averageCard: PropTypes.object,
+  helper: PropTypes.object
 };
 
 
