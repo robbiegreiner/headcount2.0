@@ -73,6 +73,7 @@ class App extends Component {
                        helper={bigData}
                        setAverageState={this.setAverageState}/>
       </div>
+      //  comparedCards={this.comparedData}/>
 
     );
   }

@@ -28,14 +28,14 @@ const Card = ({ object, key, id, comparisonMaker }) => {
   return (
     <div className="card"
           onClick={(event) => comparisonMaker(id, event)}>
-      <h5>{object.location}</h5>
+      {object && <h5>{object.location}</h5>}
       <p>{yearData}</p>
     </div>
   );
 };
 
 Card.propTypes = {
-  object: PropTypes.object,
+  object: PropTypes.object.isRequired,
   key: PropTypes.string,
   poop: PropTypes.string,
   comparisonMaker: PropTypes.func

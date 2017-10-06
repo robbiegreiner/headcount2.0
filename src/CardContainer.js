@@ -47,8 +47,9 @@ const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedSt
     <div>
       <div className="compared-card-container">
         { comparedCards }
+
       </div>
-      <div className="card-container">
+      <div className="card-container-selected">
         { cards }
       </div>
     </div>
