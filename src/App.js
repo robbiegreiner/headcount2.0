@@ -54,8 +54,11 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Search locationSearch={this.locationSearch}/>
-        <Controls updateView={this.updateView}/>
+        <h1>rocky mountain head count</h1>
+        <div className="search-and-controls">
+          <Controls updateView={this.updateView}/>
+          <Search locationSearch={this.locationSearch}/>
+        </div>
         <CardContainer cardsArray={this.state.cardsArray}
                        bigData={this.state.bigData}
                        comparisonMaker={this.comparisonMaker}/>

@@ -1,7 +1,73 @@
 /*APP COMPONENT RELATED CSS GOES HERE*/
 
-.app {
+/*font-family: 'Alfa Slab One', cursive;
+font-family: 'Allerta Stencil', sans-serif;*/
+body{
+  background-color: #032966;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Alfa Slab One', cursive;
+}
+
+h1{
+  font-family: 'Allerta Stencil', sans-serif;
+  color: #FED531;
+  font-size: 48px;
+  text-shadow: 4px 4px #BD1236;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  width: 600px;
+  flex-wrap: wrap;
+  margin-top: 0px;
+  margin-bottom:20px;
+}
+
+button{
+  margin: 10px 0px 0px 0px;
+  height: 50px;
+  width: 110px;
+  background-color: #FED531;
+  font-family: sans-serif;
+}
+
+button:hover{
+  border: 2px solid #BD1236;
+}
+
+input {
+  width: 205px;
+  height: 50px;
+  margin-bottom: 20px;
+  border: 0px;
+  padding: 0px;
+  padding-left: 10px;
+  font-size: 18px;
+  background-color: #FFFFFF;
+  font-family: sans-serif;
+}
+
+.search-and-controls {
+  display: flex;
+  width: 657px;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
 
 .card-container {
   display: flex;
@@ -10,18 +76,29 @@
 }
 
 .card {
-  font-size: 20px;
-  width: 300px;
-  border: 2px solid green;
+  font-size: 16px;
+  width: 250px;
+  border: 4px solid #BD1236;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   margin-bottom: 20px;
+  background-color: #FDD345;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
 }
 
 li {
   list-style: none;
+}
+
+.top-half{
+  font-weight: bold;
+  color: #032966;
+}
+
+.bottom-half{
+  color: #BD1236;
 }
 
 h5{

@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Card = ({ object, key, id, comparisonMaker }) => {
-  const keys = object && Object.keys(object.data);
-  const yearData = keys && keys.map( key => {
-    return <li key={key}>{key + ": " + object.data[key]}</li>;
+  const keys = Object.keys(object.data);
+  const yearData = keys.map( key => {
+    if (object.data[key] > 0.49){
+      return <li className="top-half" key={key}>{key + ": " + object.data[key]}</li>;
+    } else {
+      return <li className="bottom-half" key={key}>{key + ": " + object.data[key]}</li>;
+    }
   });
 
   // create a comparison component and container
