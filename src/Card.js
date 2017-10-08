@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ({ object, key, id, comparisonMaker, comparedData, resetComparedState }) => {
+const Card = ({ object, id, comparisonMaker, comparedData, resetComparedState }) => {
   const keys = Object.keys(object.data);
   const yearData = keys.map( key => {
     if (object.data[key] > 0.49){
@@ -11,16 +11,17 @@ const Card = ({ object, key, id, comparisonMaker, comparedData, resetComparedSta
     }
   });
 
-if(Object.keys(comparedData).length < 2){
-  return (
-    <div className="card"
-          onClick={(event) => comparisonMaker(id, event)}>
-      {object && <h5>{object.location}</h5>}
-      <p>{yearData}</p>
-    </div>
-  );
-}
-  if(Object.keys(comparedData).length >= 2){
+  if (Object.keys(comparedData).length < 2){
+    return (
+      <div className="card"
+            onClick={(event) => comparisonMaker(id, event)}>
+        {object && <h5>{object.location}</h5>}
+        <p>{yearData}</p>
+      </div>
+    );
+  }
+
+  if (Object.keys(comparedData).length >= 2){
     return (
       <div className="card"
             onClick={() => resetComparedState()}>
@@ -29,13 +30,11 @@ if(Object.keys(comparedData).length < 2){
       </div>
     );
   }
-
 };
 
 Card.propTypes = {
-  object: PropTypes.object.isRequired,
-  key: PropTypes.string,
-  poop: PropTypes.string,
+  object: PropTypes.object,
+  id: PropTypes.string,
   comparisonMaker: PropTypes.func,
   comparedData: PropTypes.object,
   resetComparedState: PropTypes.func

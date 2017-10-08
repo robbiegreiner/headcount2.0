@@ -11,13 +11,14 @@ module.exports = {
     "browser": true,
     "mocha": true,
     "node": true,
+    "jest": true,
     "es6": true
   },
   // Having a problem with one of these rules? Learn more about it here: https://eslint.org/docs/rules/
   "rules": {
     "eqeqeq": ["error", "always"],
     "react/prop-types": [1],
-    "getter-return": ["error", { "allowImplicit": true }],
+    "getter-return": [0],
     "indent": ["warn", 2],
     "no-template-curly-in-string": "error",
     "semi": ["error", "always"],
@@ -34,7 +35,7 @@ module.exports = {
     "max-len": ["warn", 180],
     "no-duplicate-imports": "error",
     "id-length": "error",
-    "id-blacklist": ["error", "data", "err", "e", "cb", "callback", "payload", "obj", "arr"],
+    "id-blacklist": ["error", "err", "e", "cb", "callback", "payload", "obj", "arr"],
     "max-depth": ["warn", 4]
   },
   "globals": {

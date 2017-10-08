@@ -41,8 +41,7 @@ class App extends Component {
 
   }
 
-  comparisonMaker(id, event) {
-    // event.currentTarget.classList.add('card-border');
+  comparisonMaker(id) {
     const swinkObj = Object.assign({
       [id]: this.state.bigData[id]
     }, this.state.comparedData);

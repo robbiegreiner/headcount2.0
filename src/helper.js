@@ -6,7 +6,7 @@ export default class DistrictRepository {
   cleanUpData(data){
     return data.reduce( (accu, dataPiece) => {
       if (!accu[dataPiece.Location]){
-        accu[dataPiece.Location] = {location: dataPiece.Location.toUpperCase(), data:{} }
+        accu[dataPiece.Location] = {location: dataPiece.Location.toUpperCase(), data:{} };
       }
       accu[dataPiece.Location].data[dataPiece.TimeFrame] = Math.round(1000 * dataPiece.Data) / 1000 || 0;
       return accu;
