@@ -22,15 +22,13 @@ describe('Card container', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it('should have three div classNames', () => {
+  it('should have two div classNames', () => {
     expect(wrapper.find('.compared-card-container').length).toEqual(1);
-    expect(wrapper.find('.card').length).toEqual(1);
     expect(wrapper.find('.card-container').length).toEqual(1);
   });
 
   it('should have multiple Card class fields', () => {
     const wrapper2 = mount(<CardContainer
-                            // cardsArray={[]}
                             bigData={{
                               key1: {data: {},
                                      location: 'Colorado'},

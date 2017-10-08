@@ -25,10 +25,6 @@ class App extends Component {
     this.setState({ comparedData: {} });
   }
 
-  // setAverageState(averageCard) {
-  //   this.setState({ averageCard: averageCard });
-  // }
-
   updateView(buttonValue, dataChoice) {
     let bigData = new DistrictRepository(dataChoice);
     this.setState({ view: buttonValue, bigData: bigData.data });
@@ -68,8 +64,6 @@ class App extends Component {
                        resetComparedState={this.resetComparedState}
                        helper={bigData}/>
       </div>
-      //  comparedCards={this.comparedData}/>
-
     );
   }
 }
