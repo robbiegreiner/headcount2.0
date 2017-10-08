@@ -26,7 +26,8 @@ class App extends Component {
   }
 
   resetComparedState() {
-    this.setState({comparedData: {}});
+    this.setState({ comparedData: {},
+                    averageCard: {} });
   }
 
   setAverageState(averageCard) {
