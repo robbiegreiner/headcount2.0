@@ -35,34 +35,32 @@ describe('App', () => {
   it('should have a default state', () => {
     expect(wrapper.state()).toEqual({
       bigData: {},
-      comparedData: {},
-    })
+      comparedData: {}
+    });
   });
 
   it('should change state when kindergarten button is clicked', () => {
-      expect(wrapper.state()).toEqual({
-          bigData: {},
-          comparedData: {},
-        });
+    expect(wrapper.state()).toEqual({
+      bigData: {},
+      comparedData: {}
+    });
 
-      wrapper = mount(<App locationSearch={ jest.fn }/>);
-      const cardData = wrapper.find('Card').get(0);
-      const button = wrapper.find('button').first()
-      const kinData = bigData.data
-      button.simulate('click')
-      expect(wrapper.state()).toEqual({bigData: kinData,
-                                      comparedData: {},
-                                      view: 'kindergarten'})
+    wrapper = mount(<App locationSearch={ jest.fn }/>);
+    const button = wrapper.find('button').first();
+    const kinData = bigData.data;
+    button.simulate('click');
+    expect(wrapper.state()).toEqual({bigData: kinData,
+                                    comparedData: {},
+                                    view: 'kindergarten'});
   });
 
   it('should change state when a card is clicked', () => {
     expect(wrapper.state()).toEqual({
-        bigData: {},
-        comparedData: {},
-      });
+      bigData: {},
+      comparedData: {}
+    });
 
     wrapper = mount(<App locationSearch={ jest.fn }/>);
-    const cardData = wrapper.find('Card').get(0);
     const button = wrapper.find('button').first();
     const kinData = bigData.data;
     button.simulate('click');

@@ -2,7 +2,6 @@ import React from 'react';
 import { configure, shallow, mount } from 'enzyme';
 import CardContainer from '../src/CardContainer';
 import Adapter from 'enzyme-adapter-react-15';
-import Card from '../src/Card';
 
 configure({ adapter: new Adapter() });
 
@@ -14,7 +13,7 @@ describe('Card container', () => {
                        cardsArray={[]}
                        bigData={{}}
                        comparedCards={[]}
-                       comparedData={[]}
+                       comparedData={{}}
                        />);
   });
 

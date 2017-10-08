@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Card from './Card.js'
+import React from 'react';
+import Card from './Card.js';
 import PropTypes from 'prop-types';
 
 const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedState, helper}) => {
