@@ -84,7 +84,7 @@ input {
   justify-content: space-around;
 }
 
-.card {
+.card, .compared-card {
   font-size: 16px;
   width: 250px;
   border: 4px solid #BD1236;
@@ -95,6 +95,10 @@ input {
   margin-bottom: 20px;
   background-color: #FDD345;
   background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+}
+
+.compared-card h4 {
+  font-size: 16px;
 }
 
 li {

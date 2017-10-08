@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card.js'
 import PropTypes from 'prop-types';
 
-const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedState, averageCard, helper, setAverageState}) => {
+const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedState, helper}) => {
 
   const keys = Object.keys(bigData);
   const cards = keys.map( key => {
@@ -21,26 +21,26 @@ const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedSt
                   resetComparedState={resetComparedState}/>;
   });
 
-  let newAverageCard = {};
   const cardQty = (Object.keys(comparedData).length);
-  console.log(cardQty);
-  //Getting hung up at this point
-  if (cardQty === 2) {
-    const keys = Object.keys(comparedData);
-    console.log(keys);
-  // // JUST PASS IN THE LOCATION STRING!!! comparedData[keys[0].location]
-    newAverageCard = helper.compareDistrictAverages(keys[0],keys[1]);
-  }
-  console.log(newAverageCard);
+  const avgKeys = (Object.keys(comparedData));
+  let avgCard = '';
 
+  if (cardQty === 2 ) {
+    const newAverageCard = helper.compareDistrictAverages(avgKeys[0], avgKeys[1]);
+    const avgCardKeys = Object.keys(newAverageCard);
+    avgCard = <div className="compared-card">
+                <h4>{avgCardKeys[0] + ": " + newAverageCard[avgCardKeys[0]] }</h4>
+                <h3> ---{newAverageCard[avgCardKeys[2]]}--- </h3>
+                <h4>{avgCardKeys[1] + ": " + newAverageCard[avgCardKeys[1]] }</h4>
+                <button onClick={ () => resetComparedState()}>RESET</button>
+              </div>;
+  }
 
   return (
     <div>
       <div className="compared-card-container">
         { comparedCards }
-        <div className="card">
-          {/* Pass in newAverageCard? */}
-        </div>
+        { avgCard }
       </div>
       <div className="card-container">
         { cards }

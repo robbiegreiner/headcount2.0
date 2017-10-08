@@ -12,30 +12,26 @@ class App extends Component {
     super();
     this.state = {
       bigData: {},
-      cardsArray: [],
-      view: 'initial',
-      comparedData: {},
-      averageCard: {}
+      comparedData: {}
     };
     this.theData = bigData.theData;
     this.updateView = this.updateView.bind(this);
     this.locationSearch = this.locationSearch.bind(this);
     this.comparisonMaker = this.comparisonMaker.bind(this);
     this.resetComparedState = this.resetComparedState.bind(this);
-    this.setAverageState = this.setAverageState.bind(this);
   }
 
   resetComparedState() {
-    this.setState({comparedData: {}});
+    this.setState({ comparedData: {}});
   }
 
-  setAverageState(averageCard) {
-    this.setState({ averageCard: averageCard });
-  }
+  // setAverageState(averageCard) {
+  //   this.setState({ averageCard: averageCard });
+  // }
 
   updateView(buttonValue, dataChoice) {
     bigData = new DistrictRepository(dataChoice)
-    this.setState({view: buttonValue, bigData: bigData.data});
+    this.setState({bigData: bigData.data});
   }
 
   locationSearch(string) {
@@ -45,7 +41,7 @@ class App extends Component {
       return accu;
     }, {});
 
-    this.setState({cardsArray: newArray, bigData: newDataObject});
+    this.setState({bigData: newDataObject});
 
   }
 
@@ -65,14 +61,12 @@ class App extends Component {
           <Controls updateView={this.updateView}/>
           <Search locationSearch={this.locationSearch}/>
         </div>
-          <CardContainer cardsArray={this.state.cardsArray}
+          <CardContainer
                        bigData={this.state.bigData}
                        comparisonMaker={this.comparisonMaker}
                        comparedData={this.state.comparedData}
                        resetComparedState={this.resetComparedState}
-                       averageCard={this.state.averageCard}
-                       helper={bigData}
-                       setAverageState={this.setAverageState}/>
+                       helper={bigData}/>
       </div>
       //  comparedCards={this.comparedData}/>
 
