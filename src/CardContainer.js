@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Card from './Card.js'
 import PropTypes from 'prop-types';
-import DistrictRepository from './helper.js';
 
-const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedState, averageCard, helper, setAverageState}) => {
+const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedState, helper}) => {
 
   const keys = Object.keys(bigData);
   const cards = keys.map( key => {
@@ -23,30 +22,25 @@ const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedSt
   });
 
   const cardQty = (Object.keys(comparedData).length);
-  const avgKeys = (Object.keys(comparedData))
-  let cardJSX = '';
-  console.log('cardqty' + cardQty);
+  const avgKeys = (Object.keys(comparedData));
+  let avgCard = '';
 
   if (cardQty === 2 ) {
-    console.log(comparedData);
-    console.log(avgKeys[0] +" " + avgKeys[1]);
     const newAverageCard = helper.compareDistrictAverages(avgKeys[0], avgKeys[1]);
-    console.log(newAverageCard);
     const avgCardKeys = Object.keys(newAverageCard);
-    console.log(avgCardKeys);
-    cardJSX = <div className="compared-card">
+    avgCard = <div className="compared-card">
                 <h4>{avgCardKeys[0] + ": " + newAverageCard[avgCardKeys[0]] }</h4>
                 <h3> ---{newAverageCard[avgCardKeys[2]]}--- </h3>
                 <h4>{avgCardKeys[1] + ": " + newAverageCard[avgCardKeys[1]] }</h4>
                 <button onClick={ () => resetComparedState()}>RESET</button>
-              </div>
+              </div>;
   }
 
   return (
     <div>
       <div className="compared-card-container">
         { comparedCards }
-        { cardJSX }
+        { avgCard }
       </div>
       <div className="card-container">
         { cards }
