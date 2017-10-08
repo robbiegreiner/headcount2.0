@@ -25,11 +25,11 @@ class Controls extends Component {
                 onClick={(event) => this.updateAppView(event, highSchool)}>
           High School Graduation Rates
         </button>
-        <button className='buttonClick' id='highschool'
+        <button className='buttonClick' id='childPoverty'
                 onClick={(event) => this.updateAppView(event, childPoverty)}>
           School Aged Children In Poverty
         </button>
-        <button className='buttonClick' id='highschool'
+        <button className='buttonClick' id='remediation'
                 onClick={(event) => this.updateAppView(event, remediation)}>
           Remediation In Higher Education
         </button>
