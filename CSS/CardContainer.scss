@@ -1,0 +1,14 @@
+.compared-card-container {
+  display: flex;
+  justify-content: center;
+}
+
+.compared-card-container .card {
+  margin-left: 30px;
+  margin-right: 25px;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
