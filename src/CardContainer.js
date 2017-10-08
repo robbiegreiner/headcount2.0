@@ -9,7 +9,9 @@ const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedSt
     return <Card object={bigData[key]}
                   key={key}
                   id={key}
-                  comparisonMaker={comparisonMaker} />;
+                  comparisonMaker={comparisonMaker}
+                  comparedData={comparedData}
+                  resetComparedState={resetComparedState}/>;
   });
 
   const keys2 = Object.keys(comparedData);
@@ -18,6 +20,7 @@ const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedSt
                   key={key}
                   id={key}
                   comparisonMaker={comparisonMaker}
+                  comparedData={comparedData}
                   resetComparedState={resetComparedState}/>;
   });
 

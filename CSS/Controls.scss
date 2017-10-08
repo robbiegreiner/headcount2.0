@@ -1,0 +1,45 @@
+.controls {
+  display: flex;
+  justify-content: center;
+  width: 600px;
+  flex-wrap: wrap;
+  margin-top: 0px;
+  margin-bottom:20px;
+}
+
+button{
+  margin: 10px 0px 0px 0px;
+  height: 50px;
+  width: 110px;
+  background-color: #FED531;
+  font-family: sans-serif;
+  border: 1px solid gray;
+}
+
+button:hover{
+  border: 2px solid #BD1236;
+}
+
+input {
+  width: 205px;
+  height: 50px;
+  margin-bottom: 20px;
+  border: 0px;
+  padding: 0px;
+  padding-left: 10px;
+  font-size: 18px;
+  background-color: #FFFFFF;
+  font-family: sans-serif;
+}
+
+.search-and-controls {
+  display: flex;
+  width: 657px;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}

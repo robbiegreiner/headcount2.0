@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
+import '../CSS/App.css';
 import Controls from './Controls';
 import CardContainer from './CardContainer';
 import DistrictRepository from './helper.js';
 import Search from './Search';
-import './App.css';
 import kindergarten from '../data/kindergartners_in_full_day_program.js';
 const bigData = new DistrictRepository(kindergarten);
 
@@ -25,10 +25,6 @@ class App extends Component {
     this.setState({ comparedData: {} });
   }
 
-  // setAverageState(averageCard) {
-  //   this.setState({ averageCard: averageCard });
-  // }
-
   updateView(buttonValue, dataChoice) {
     let bigData = new DistrictRepository(dataChoice);
     this.setState({ view: buttonValue, bigData: bigData.data });
@@ -46,7 +42,7 @@ class App extends Component {
   }
 
   comparisonMaker(id, event) {
-    event.currentTarget.style.border = '2px solid blue';
+    // event.currentTarget.classList.add('card-border');
     const swinkObj = Object.assign({
       [id]: this.state.bigData[id]
     }, this.state.comparedData);
@@ -56,7 +52,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <h1>rocky mountain head count</h1>
+        <h1>Rocky Mountain Head Count</h1>
         <div className="search-and-controls">
           <Controls updateView={ this.updateView }/>
           <Search locationSearch={ this.locationSearch }/>
@@ -68,8 +64,6 @@ class App extends Component {
                        resetComparedState={this.resetComparedState}
                        helper={bigData}/>
       </div>
-      //  comparedCards={this.comparedData}/>
-
     );
   }
 }
