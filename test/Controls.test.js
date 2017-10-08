@@ -28,12 +28,48 @@ describe('Controls', () => {
     expect(wrapper.find('#kindergarten').length).toEqual(1);
   });
 
-  // it('should handle a click event', () => {
-  //   const button = wrapper.find('.buttonClick')
-  //   console.log('hellllo', button);
-  //   button.simulate('click')
-  //   expect(onClickFunction).toHaveBeenCalled();
-  // });
+  it('should handle a click event when kindergarten button is clicked', () => {
+    wrapper =mount(<Controls
+      event={[]}
+      kindergarten={[]}
+      updateView={ jest.fn() }/>);
 
-  // target of undefined
+    const button = wrapper.find('#kindergarten');
+    button.simulate('click');
+    expect(wrapper.instance().props.updateView).toHaveBeenCalled();
+  });
+
+  it('should handle a click event when highschool button is clicked', () => {
+    wrapper =mount(<Controls
+      event={[]}
+      highschool={[]}
+      updateView={ jest.fn() }/>);
+
+    const button = wrapper.find('#highschool');
+    button.simulate('click');
+    expect(wrapper.instance().props.updateView).toHaveBeenCalled();
+  });
+
+  it('should handle a click event when childPoverty button is clicked', () => {
+    wrapper =mount(<Controls
+      event={[]}
+      childPoverty={[]}
+      updateView={ jest.fn() }/>);
+
+    const button = wrapper.find('#childPoverty');
+    button.simulate('click');
+    expect(wrapper.instance().props.updateView).toHaveBeenCalled();
+  });
+
+  it('should handle a click event when remediation button is clicked', () => {
+    wrapper =mount(<Controls
+      event={[]}
+      remediation={[]}
+      updateView={ jest.fn() }/>);
+
+    const button = wrapper.find('#remediation');
+    button.simulate('click');
+    expect(wrapper.instance().props.updateView).toHaveBeenCalled();
+  });
+
 });

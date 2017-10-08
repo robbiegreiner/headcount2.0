@@ -24,7 +24,8 @@ describe('Card container', () => {
 
   it('should have three div classNames', () => {
     expect(wrapper.find('.compared-card-container').length).toEqual(1);
-    expect(wrapper.find('.card-container-selected').length).toEqual(1);
+    expect(wrapper.find('.card').length).toEqual(1);
+    expect(wrapper.find('.card-container').length).toEqual(1);
   });
 
   it('should have multiple Card class fields', () => {

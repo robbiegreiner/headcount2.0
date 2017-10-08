@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   resetComparedState() {
-    this.setState({comparedData: {}});
+    this.setState({ comparedData: {} });
   }
 
   setAverageState(averageCard) {
@@ -34,8 +34,8 @@ class App extends Component {
   }
 
   updateView(buttonValue, dataChoice) {
-    bigData = new DistrictRepository(dataChoice)
-    this.setState({view: buttonValue, bigData: bigData.data});
+    let bigData = new DistrictRepository(dataChoice);
+    this.setState({ view: buttonValue, bigData: bigData.data });
   }
 
   locationSearch(string) {
@@ -45,7 +45,7 @@ class App extends Component {
       return accu;
     }, {});
 
-    this.setState({cardsArray: newArray, bigData: newDataObject});
+    this.setState({ cardsArray: newArray, bigData: newDataObject });
 
   }
 
@@ -62,17 +62,18 @@ class App extends Component {
       <div className="app">
         <h1>rocky mountain head count</h1>
         <div className="search-and-controls">
-          <Controls updateView={this.updateView}/>
-          <Search locationSearch={this.locationSearch}/>
+          <Controls updateView={ this.updateView }/>
+          <Search locationSearch={ this.locationSearch }/>
         </div>
-          <CardContainer cardsArray={this.state.cardsArray}
-                       bigData={this.state.bigData}
-                       comparisonMaker={this.comparisonMaker}
-                       comparedData={this.state.comparedData}
-                       resetComparedState={this.resetComparedState}
-                       averageCard={this.state.averageCard}
-                       helper={bigData}
-                       setAverageState={this.setAverageState}/>
+          <CardContainer cardsArray={ this.state.cardsArray }
+                         bigData={ this.state.bigData }
+                         comparisonMaker={ this.comparisonMaker }
+                         comparedData={ this.state.comparedData }
+                         resetComparedState={ this.resetComparedState }
+                         averageCard={ this.state.averageCard }
+                         helper={ bigData }
+                         setAverageState={ this.setAverageState }
+                         />
       </div>
       //  comparedCards={this.comparedData}/>
 

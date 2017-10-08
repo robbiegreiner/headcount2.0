@@ -23,15 +23,15 @@ const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedSt
 
   let newAverageCard = {};
   const cardQty = (Object.keys(comparedData).length);
-  console.log(cardQty);
+  // console.log(cardQty);
   //Getting hung up at this point
   if (cardQty === 2) {
     const keys = Object.keys(comparedData);
-    console.log(keys);
+    // console.log(keys);
   // // JUST PASS IN THE LOCATION STRING!!! comparedData[keys[0].location]
-    newAverageCard = helper.compareDistrictAverages(keys[0],keys[1]);
+    newAverageCard = helper.compareDistrictAverages(keys[0], keys[1]);
   }
-  console.log(newAverageCard);
+  // console.log(newAverageCard);
 
 
   return (
