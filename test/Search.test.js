@@ -28,9 +28,4 @@ describe('Search funcitonality', () => {
     expect(wrapper.prop('search')._isMockFunction).toBe(true);
   });
 
-  it('should have a default state', () => {
-    expect(wrapper.state()).toEqual({
-      inputValue: ''
-    });
-  });
 });

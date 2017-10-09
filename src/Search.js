@@ -4,16 +4,11 @@ import PropTypes from 'prop-types';
 class Search extends Component {
   constructor() {
     super();
-    this.state = {
-      inputValue: ''
-    };
-    this.changeStateEvent = this.changeStateEvent.bind(this);
   }
 
   changeStateEvent(event) {
     this.props.locationSearch(event.target.value);
   }
-
 
   render() {
     return (
