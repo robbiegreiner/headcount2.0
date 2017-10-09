@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import '../CSS/App.css';
 import Controls from './Controls';
 import CardContainer from './CardContainer';
 import DistrictRepository from './helper.js';
