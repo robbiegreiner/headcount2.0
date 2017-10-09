@@ -1,20 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Search extends Component {
-  constructor() {
-    super();
-  }
+const Search = ( { locationSearch } ) => {
+  return (
+    <div className="search">
+      <input placeholder='Search School Districts'
+             onChange={(event) => locationSearch(event.target.value)} />
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div className="search">
-        <input placeholder='Search School Districts'
-               onChange={(event) =>this.props.locationSearch(event.target.value)} />
-      </div>
-    );
-  }
-}
 
 Search.propTypes = {
   locationSearch: PropTypes.func
