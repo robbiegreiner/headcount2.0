@@ -4,24 +4,23 @@ import PropTypes from 'prop-types';
 
 const CardContainer = ({ bigData, comparisonMaker, comparedData, resetComparedState, helper}) => {
 
-  const keys = Object.keys(bigData);
-  const cards = keys.map( key => {
-    return <Card object={bigData[key]}
+  const buildCard = (dataObject, key) => {
+    return <Card object={dataObject}
                   key={key}
                   id={key}
                   comparisonMaker={comparisonMaker}
                   comparedData={comparedData}
                   resetComparedState={resetComparedState}/>;
+  };
+
+  const keys = Object.keys(bigData);
+  const cards = keys.map( key => {
+    return buildCard(bigData[key], key);
   });
 
   const keys2 = Object.keys(comparedData);
   const comparedCards = keys2.map( key => {
-    return <Card object={comparedData[key]}
-                  key={key}
-                  id={key}
-                  comparisonMaker={comparisonMaker}
-                  comparedData={comparedData}
-                  resetComparedState={resetComparedState}/>;
+    return buildCard(comparedData[key], key);
   });
 
   const cardQty = (Object.keys(comparedData).length);
