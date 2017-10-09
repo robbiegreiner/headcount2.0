@@ -11,26 +11,24 @@ const Card = ({ object, id, comparisonMaker, comparedData, resetComparedState })
     }
   });
 
-  if (Object.keys(comparedData).length < 2){
-    return (
+  return (
       <div className="card"
-            onClick={(event) => comparisonMaker(id, event)}>
+            onClick={(event) => { Object.keys(comparedData).length < 2 ? comparisonMaker(id, event) : resetComparedState();   } }>
         {object && <h5>{object.location}</h5>}
         <p>{yearData}</p>
       </div>
     );
-  }
-
-  if (Object.keys(comparedData).length >= 2){
-    return (
-      <div className="card"
-            onClick={() => resetComparedState()}>
-        {object && <h5>{object.location}</h5>}
-        <p>{yearData}</p>
-      </div>
-    );
-  }
 };
+
+  // if (Object.keys(comparedData).length >= 2){
+  //   return (
+  //     <div className="card"
+  //           onClick={() => resetComparedState()}>
+  //       {object && <h5>{object.location}</h5>}
+  //       <p>{yearData}</p>
+  //     </div>
+  //   );
+  // }
 
 Card.propTypes = {
   object: PropTypes.object,

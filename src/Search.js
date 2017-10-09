@@ -6,15 +6,11 @@ class Search extends Component {
     super();
   }
 
-  changeStateEvent(event) {
-    this.props.locationSearch(event.target.value);
-  }
-
   render() {
     return (
       <div className="search">
         <input placeholder='Search School Districts'
-               onChange={(event) =>this.changeStateEvent(event)} />
+               onChange={(event) =>this.props.locationSearch(event.target.value)} />
       </div>
     );
   }
