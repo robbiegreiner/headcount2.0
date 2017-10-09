@@ -9,3 +9,5 @@ Clone this repo
 run `npm install`
 
 run `npm start`
+
+Link to assignment repo: https://github.com/turingschool-examples/headcount2.0
