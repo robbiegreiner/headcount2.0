@@ -1,10 +1,17 @@
 # HeadCount 2.0
 
+Live Site: http://www.robbieg.io/headcount/ 
+
 Samuel Singer & Robbie Greiner
+
+This application displays big education data onto cards using React.  
 
 Link to assignment repo: https://github.com/turingschool-examples/headcount2.0
 
 ## Instructions
+
+Click one of the buttons at the top to show a dataset.  Use search to search for different school districts.  Click 
+on two cards to compare them both.
 
 Clone this repo
 
